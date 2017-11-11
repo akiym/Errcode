@@ -105,21 +105,21 @@ subtest 'message' => sub {
 
 subtest 'debug' => sub {
     my $err = Errcode->new('A', 'foo: {bar}', {bar => 'BAR'});
-    like $err->debug, qr!^at .+t/01_basic\.t line 107$!;
+    like $err->debug, qr!^at .*t/01_basic\.t line 107$!;
 };
 
 subtest 'error' => sub {
     my $err = Errcode->new('A', 'foo');
     like warning {
         $err->error;
-    }, qr!^foo at .+t/01_basic\.t line 112$!;
+    }, qr!^foo at .*t/01_basic\.t line 112$!;
 };
 
 subtest 'fatal' => sub {
     my $err = Errcode->new('A', 'foo');
     like dies {
         $err->fatal;
-    }, qr!^foo at .+t/01_basic\.t line 119$!;
+    }, qr!^foo at .*t/01_basic\.t line 119$!;
 };
 
 done_testing;
